@@ -1,0 +1,165 @@
+:root {
+  --ink: #1B2A3D;
+  --ink-soft: #4A5A70;
+  --paper: #EDEEE6;
+  --paper-raised: #F7F7F1;
+  --line: #D7D6C8;
+  --gold: #B9862E;
+  --gold-deep: #8E6620;
+  --owe: #A6432F;
+  --owed: #2E6B4F;
+  --radius: 3px;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 15px;
+}
+
+#app {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 48px 24px 96px;
+}
+
+h1, h2, h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  margin: 0;
+  color: var(--ink);
+}
+
+.brand {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 16px;
+  margin-bottom: 32px;
+}
+
+.brand h1 { font-size: 32px; letter-spacing: -0.01em; }
+.brand .tagline { color: var(--ink-soft); font-size: 14px; }
+
+.panel {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+.row + .row { margin-top: 12px; }
+
+input, select {
+  font-family: inherit;
+  font-size: 14px;
+  padding: 9px 11px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  color: var(--ink);
+}
+input:focus, select:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
+
+button {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 9px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper-raised);
+  cursor: pointer;
+}
+button:hover { background: #2A3B52; }
+button.secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+button.secondary:hover { border-color: var(--ink); }
+button:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.group-list { display: flex; flex-direction: column; gap: 6px; }
+.group-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+.group-item:hover { background: var(--paper); }
+.group-item.active { border-color: var(--ink); background: var(--paper); font-weight: 600; }
+
+.tabs { display: flex; gap: 4px; margin-bottom: 20px; border-bottom: 1px solid var(--line); }
+.tab {
+  padding: 10px 16px;
+  cursor: pointer;
+  color: var(--ink-soft);
+  border-bottom: 2px solid transparent;
+  font-weight: 500;
+}
+.tab.active { color: var(--ink); border-bottom-color: var(--gold); }
+
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); font-size: 14px; }
+th { color: var(--ink-soft); font-weight: 500; font-size: 12px; text-transform: uppercase; letter-spacing: 0.04em; }
+td.amount { text-align: right; font-variant-numeric: tabular-nums; }
+
+.balance-owed { color: var(--owed); font-weight: 600; }
+.balance-owe { color: var(--owe); font-weight: 600; }
+
+.member-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  font-size: 13px;
+  background: #fff;
+  cursor: pointer;
+  user-select: none;
+}
+.member-chip.selected { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--ink-soft);
+}
+
+.settle-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  margin-bottom: 8px;
+  background: #fff;
+}
+.settle-line .arrow { color: var(--gold-deep); }
+.settle-line .amt { margin-left: auto; font-variant-numeric: tabular-nums; font-weight: 600; }
+
+.error-banner {
+  background: #FBEAE7;
+  border: 1px solid var(--owe);
+  color: var(--owe);
+  padding: 10px 14px;
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+label.field-label { font-size: 12px; color: var(--ink-soft); display: block; margin-bottom: 4px; }
+.field { display: flex; flex-direction: column; }
